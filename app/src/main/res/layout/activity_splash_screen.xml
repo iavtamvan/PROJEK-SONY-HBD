@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorAccent"
-            android:id="@+id/iv_splash"/>
+            android:id="@+id/iv_splash"
+            android:scaleType="fitXY"/>
 
         <LinearLayout
             android:layout_width="match_parent"

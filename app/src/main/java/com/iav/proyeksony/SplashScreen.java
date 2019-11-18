@@ -1,6 +1,8 @@
 package com.iav.proyeksony;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +45,15 @@ public class SplashScreen extends AppCompatActivity {
                             for (int i = 0; i < models.size(); i++) {
                                 tvKeteranganSplash.setText(models.get(i).getKeterangan());
                                 Glide.with(SplashScreen.this).load(models.get(i).getImage()).into(ivSplash);
+
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        finishAffinity();
+                                        startActivity(new Intent(getApplicationContext(), MenuUtamaActivity.class));
+                                    }
+                                }, 2000);
                             }
                         }
                     }
