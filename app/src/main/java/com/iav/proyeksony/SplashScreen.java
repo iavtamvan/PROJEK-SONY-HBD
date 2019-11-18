@@ -49,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<ArrayList<Model>> call, Throwable t) {
-                        Toast.makeText(SplashScreen.this, ""t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SplashScreen.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
