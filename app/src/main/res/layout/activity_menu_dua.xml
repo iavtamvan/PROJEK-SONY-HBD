@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MenuDuaActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rv"/>
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
