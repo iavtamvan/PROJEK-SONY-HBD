@@ -16,7 +16,7 @@
         android:layout_marginBottom="5dp"
         android:id="@+id/lottie"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="cari.json"
+        app:lottie_fileName="indonesia_president.json"
         app:lottie_loop="true" />
 
 
