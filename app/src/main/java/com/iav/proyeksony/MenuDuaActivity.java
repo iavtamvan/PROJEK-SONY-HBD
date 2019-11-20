@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.iav.proyeksony.helper.Config;
 import com.iav.proyeksony.model.Model;
@@ -33,6 +35,8 @@ public class MenuDuaActivity extends AppCompatActivity {
 
     private String savingMenus;
     private LinearLayout div;
+    private LottieAnimationView lottie;
+    private ScrollView svDiv;
 
 
     @Override
@@ -70,6 +74,9 @@ public class MenuDuaActivity extends AppCompatActivity {
                                 tvMenu = view.findViewById(R.id.tv_menu);
                                 tvMenuKeterangan = view.findViewById(R.id.tv_menu_keterangan);
 
+                                lottie.setVisibility(View.GONE);
+                                svDiv.setVisibility(View.VISIBLE);
+
                                 Glide.with(MenuDuaActivity.this).load(s.getImage_menu()).into(ivMenu);
                                 tvMenu.setText(s.getNama_menu());
                                 tvMenuKeterangan.setText(s.getKeterangan_menu());
@@ -77,16 +84,18 @@ public class MenuDuaActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         Toast.makeText(MenuDuaActivity.this, "suksess", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(new Intent(MenuDuaActivity.this, MenuDuaActivity.class));
-                                        intent.putExtra(Config.BUNDLE_NAMA_MENU,s.getNama_menu());
-                                        intent.putExtra(Config.BUNDLE_IMAGE_MENU,s.getImage_menu());
-                                        intent.putExtra(Config.BUNDLE_KETERANGAN_MENU,s.getKeterangan_menu());
-                                        intent.putExtra(Config.BUNDLE_ID_VIDEO_MENU,s.getId_video());
-                                        intent.putExtra(Config.BUNDLE_KETERANGAN_VIDEO,s.getKeterangan_video());
-                                        intent.putExtra(Config.BUNDLE_JENIS_VIDEO,s.getJenis_video());
+                                        Intent intent = new Intent(new Intent(MenuDuaActivity.this, DetailActivity.class));
+                                        intent.putExtra(Config.BUNDLE_NAMA_MENU, s.getNama_menu());
+                                        intent.putExtra(Config.BUNDLE_IMAGE_MENU, s.getImage_menu());
+                                        intent.putExtra(Config.BUNDLE_KETERANGAN_MENU, s.getKeterangan_menu());
+                                        intent.putExtra(Config.BUNDLE_ID_VIDEO_MENU, s.getId_video());
+                                        intent.putExtra(Config.BUNDLE_KETERANGAN_VIDEO, s.getKeterangan_video());
+                                        intent.putExtra(Config.BUNDLE_JENIS_VIDEO, s.getJenis_video());
                                         intent.putExtra(Config.BUNDLE_NAMA_VIDEO, s.getNama_video());
-                                        intent.putExtra(Config.BUNDLE_PUBLIKASI_VIDEO,s.getPublikasi_video());
+                                        intent.putExtra(Config.BUNDLE_PUBLIKASI_VIDEO, s.getPublikasi_video());
                                         intent.putExtra(Config.BUNDLE_UNTUK_SIAPA_VIDEO, s.getUntuk_siapa());
+
+                                        startActivity(intent);
                                     }
                                 });
 
@@ -105,5 +114,7 @@ public class MenuDuaActivity extends AppCompatActivity {
 
     private void initView() {
         rv = findViewById(R.id.rv);
+        lottie = findViewById(R.id.lottie);
+        svDiv = findViewById(R.id.sv_div);
     }
 }

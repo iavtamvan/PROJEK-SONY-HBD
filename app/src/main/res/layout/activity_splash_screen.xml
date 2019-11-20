@@ -5,15 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".SplashScreen">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/lottie"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="cari.json"
+        app:lottie_loop="true" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/frame_splash"
+        android:visibility="gone">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@color/colorAccent"
             android:id="@+id/iv_splash"
             android:scaleType="fitXY"/>
 
@@ -26,8 +39,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HBD gengs"
-                android:textSize="40dp"
+                android:textSize="20dp"
+                android:text="HHAHAHA"
+                android:textColor="@android:color/black"
                 android:gravity="center"
                 android:id="@+id/tv_keterangan_splash"
                 android:textStyle="bold"/>

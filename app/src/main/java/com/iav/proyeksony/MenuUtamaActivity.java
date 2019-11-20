@@ -1,13 +1,15 @@
 package com.iav.proyeksony;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-
+import com.airbnb.lottie.LottieAnimationView;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -34,6 +36,8 @@ public class MenuUtamaActivity extends AppCompatActivity {
     private SliderLayout mSliderSlider;
     private PagerIndicator customIndicator;
     private PagerIndicator customIndicator2;
+    private LottieAnimationView lottie;
+    private LinearLayout divMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +57,10 @@ public class MenuUtamaActivity extends AppCompatActivity {
                 .enqueue(new Callback<ArrayList<Model>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Model>> call, Response<ArrayList<Model>> response) {
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful()) {
                             models = response.body();
                             for (int i = 0; i < models.size(); i++) {
-                                menuAdapter = new com.iav.proyeksony.adapter.MenuAdapter(MenuUtamaActivity.this, models);
+                                menuAdapter = new MenuAdapter(MenuUtamaActivity.this, models);
                                 rv.setLayoutManager(new LinearLayoutManager(MenuUtamaActivity.this));
                                 rv.setAdapter(menuAdapter);
                                 rv.setHasFixedSize(true);
@@ -79,8 +83,10 @@ public class MenuUtamaActivity extends AppCompatActivity {
                 .enqueue(new Callback<ArrayList<Model>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Model>> call, Response<ArrayList<Model>> response) {
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful()) {
                             models = response.body();
+                            lottie.setVisibility(View.GONE);
+                            divMain.setVisibility(View.VISIBLE);
                             for (int i = 0; i < models.size(); i++) {
                                 mSliderSlider.setVisibility(View.VISIBLE);
                                 customIndicator.setVisibility(View.VISIBLE);
@@ -124,5 +130,7 @@ public class MenuUtamaActivity extends AppCompatActivity {
         mSliderSlider = findViewById(R.id.mSliderSlider);
         customIndicator = findViewById(R.id.custom_indicator);
         customIndicator2 = findViewById(R.id.custom_indicator2);
+        lottie = findViewById(R.id.lottie);
+        divMain = findViewById(R.id.div_main);
     }
 }

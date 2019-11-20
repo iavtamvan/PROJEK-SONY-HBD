@@ -66,8 +66,8 @@ public class DetailActivity extends AppCompatActivity {
         tvUntukSiapa.setText(untuk_siapa_video);
         tvKeteranganVideo.setText(keterangan_video);
 
-        youtubePlayerView.toggleFullScreen();
-        youtubePlayerView.isFullScreen();
+//        youtubePlayerView.toggleFullScreen();
+//        youtubePlayerView.isFullScreen();
         youtubePlayerView.initialize(new YouTubePlayerInitListener() {
             @Override
             public void onInitSuccess(final YouTubePlayer youTubePlayer) {
@@ -81,6 +81,12 @@ public class DetailActivity extends AppCompatActivity {
         }, true);
 
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        youtubePlayerView.release();
     }
 
     private void initView() {
