@@ -55,5 +55,4 @@
             android:text="YOUNGG YOUNGG YOUNGG YOUNGG YOUNGG "
             android:layout_marginTop="8dp"/>
 
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    </LinearLayout></androidx.core.widget.NestedScrollView>

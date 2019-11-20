@@ -28,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MenuDuaActivity extends AppCompatActivity {
+public class Menu3Activity extends AppCompatActivity {
 
     private RecyclerView rv;
     private ArrayList<Model> models;
@@ -53,7 +53,7 @@ public class MenuDuaActivity extends AppCompatActivity {
 
     private void getMenu() {
         ApiService apiService = Client.getInstanceRetrofit();
-        apiService.getMenuDua("read", "menu_dua")
+        apiService.getMenuDua("read", "menu_tiga")
                 .enqueue(new Callback<ArrayList<Model>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Model>> call, Response<ArrayList<Model>> response) {
@@ -77,19 +77,18 @@ public class MenuDuaActivity extends AppCompatActivity {
                                 lottie.setVisibility(View.GONE);
                                 svDiv.setVisibility(View.VISIBLE);
 
-                                Glide.with(MenuDuaActivity.this).load(s.getImage_menu()).into(ivMenu);
+                                Glide.with(Menu3Activity.this).load(s.getImage_menu()).into(ivMenu);
                                 tvMenu.setText(s.getNama_menu());
                                 tvMenuKeterangan.setText(s.getKeterangan_menu());
                                 cvklik.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Toast.makeText(MenuDuaActivity.this, "suksess", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(new Intent(MenuDuaActivity.this, DetailActivity.class));
+                                        Toast.makeText(Menu3Activity.this, "" + s.getKeterangan_video(), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(new Intent(Menu3Activity.this, DetailActivity.class));
                                         intent.putExtra(Config.BUNDLE_NAMA_MENU, s.getNama_menu());
                                         intent.putExtra(Config.BUNDLE_IMAGE_MENU, s.getImage_menu());
-                                        intent.putExtra(Config.BUNDLE_KETERANGAN_MENU, s.getKeterangan_menu());
-                                        intent.putExtra(Config.BUNDLE_ID_VIDEO_MENU, s.getId_video());
                                         intent.putExtra(Config.BUNDLE_KETERANGAN_VIDEO, s.getKeterangan_video());
+                                        intent.putExtra(Config.BUNDLE_ID_VIDEO_MENU, s.getId_video());
                                         intent.putExtra(Config.BUNDLE_JENIS_VIDEO, s.getJenis_video());
                                         intent.putExtra(Config.BUNDLE_NAMA_VIDEO, s.getNama_video());
                                         intent.putExtra(Config.BUNDLE_PUBLIKASI_VIDEO, s.getPublikasi_video());
@@ -107,7 +106,7 @@ public class MenuDuaActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<ArrayList<Model>> call, Throwable t) {
-                        Toast.makeText(MenuDuaActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Menu3Activity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

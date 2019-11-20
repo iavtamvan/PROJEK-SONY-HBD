@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -53,9 +54,8 @@ public class DetailActivity extends AppCompatActivity {
 
         nama_menu = getIntent().getStringExtra(Config.BUNDLE_NAMA_MENU);
         image_menu = getIntent().getStringExtra(Config.BUNDLE_IMAGE_MENU);
-        keterangan_menu = getIntent().getStringExtra(Config.BUNDLE_KETERANGAN_MENU);
-        id_video_menu = getIntent().getStringExtra(Config.BUNDLE_ID_VIDEO_MENU);
         keterangan_video = getIntent().getStringExtra(Config.BUNDLE_KETERANGAN_VIDEO);
+        id_video_menu = getIntent().getStringExtra(Config.BUNDLE_ID_VIDEO_MENU);
         jenis_video = getIntent().getStringExtra(Config.BUNDLE_JENIS_VIDEO);
         nama_video = getIntent().getStringExtra(Config.BUNDLE_NAMA_VIDEO);
         publikasi_video = getIntent().getStringExtra(Config.BUNDLE_PUBLIKASI_VIDEO);

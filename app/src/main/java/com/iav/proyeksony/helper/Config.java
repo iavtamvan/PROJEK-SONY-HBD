@@ -5,6 +5,7 @@ public final class Config {
 
 
     public static final String BUNDLE_NAMA_MENU = "nama menu!";
+    public static final String BUNDLE_NAMA_MENU_3 = "nama menu3";
     public static final String BUNDLE_IMAGE_MENU = "image_menu";
     public static final String BUNDLE_KETERANGAN_MENU = "keterangan_menu";
     public static final String BUNDLE_ID_VIDEO_MENU = "id_video_menu";

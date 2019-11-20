@@ -13,7 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.iav.proyeksony.MenuDuaActivity;
+import com.iav.proyeksony.Menu2Activity;
+import com.iav.proyeksony.Menu3Activity;
 import com.iav.proyeksony.R;
 import com.iav.proyeksony.helper.Config;
 import com.iav.proyeksony.model.Model;
@@ -39,13 +40,13 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-
+        holder.tvMenu.setText(menuModels.get(position).getNama_menu());
         holder.tvMenuKeterangan.setText(menuModels.get(position).getKeterangan_menu());
         Glide.with(context).load(menuModels.get(position).getImage_menu()).into(holder.ivMenu);
         holder.cvklik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(new Intent(context, MenuDuaActivity.class));
+                Intent intent = new Intent(new Intent(context, Menu2Activity.class));
                 intent.putExtra(Config.BUNDLE_NAMA_MENU, menuModels.get(position).getNama_menu());
                 context.startActivity(intent);
             }
