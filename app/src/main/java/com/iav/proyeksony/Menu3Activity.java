@@ -42,7 +42,7 @@ public class Menu3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_dua);
+        setContentView(R.layout.activity_menu_tigas);
         getSupportActionBar().hide();
         initView();
         models = new ArrayList<>();
